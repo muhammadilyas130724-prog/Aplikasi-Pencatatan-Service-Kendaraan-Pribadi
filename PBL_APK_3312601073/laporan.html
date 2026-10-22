@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan - Servisku</title>
+    <link rel="stylesheet" href="laporan.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="brand">
+            <img src="polibatamLogo.png" alt="Logo Servisku">
+            <span>Servisku</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 10.5 12 3l9 7.5"/>
+                    <path d="M5.5 9v12h13V9M9.5 21v-7h5v7"/>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="kendaraan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="7" cy="12" r="4"/>
+                    <circle cx="17" cy="12" r="4"/>
+                    <path d="M7 12h10M11 9l2 6"/>
+                </svg>
+                <span>Kendaraan</span>
+            </a>
+
+            <a href="servis1.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="m14.5 6.5 3-3a6 6 0 0 0-7.8 7.8L3 18a2.1 2.1 0 0 0 3 3l6.7-6.7a6 6 0 0 0 7.8-7.8l-3 3z"/>
+                    <path d="m3 3 18 18"/>
+                </svg>
+                <span>Servis</span>
+            </a>
+
+            <a href="laporan.html" class="nav-link active">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 2h9l5 5v15H6z"/>
+                    <path d="M15 2v6h5M9 12h7M9 16h7"/>
+                </svg>
+                <span>Laporan</span>
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="9" r="3"/>
+                    <path d="M6.5 18a6 6 0 0 1 11 0"/>
+                </svg>
+                <span>Profil</span>
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- Konten Laporan -->
+    <main class="report-container">
+
+        <h1>Laporan</h1>
+
+        <!-- Filter Laporan -->
+        <form id="formFilter" class="filter-form">
+
+            <div class="filter-group">
+                <label for="tanggalAwal">Tanggal Awal Servis</label>
+                <input type="date" id="tanggalAwal">
+            </div>
+
+            <div class="filter-group">
+                <label for="tanggalAkhir">Tanggal Akhir Servis</label>
+                <input type="date" id="tanggalAkhir">
+            </div>
+
+            <div class="filter-group">
+                <label for="jenisKendaraan">Jenis Kendaraan</label>
+                <select id="jenisKendaraan">
+                    <option value="">Semua Kendaraan</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-tampilkan">
+                Tampilkan
+            </button>
+
+        </form>
+
+        <p id="pesanLaporan" class="report-message" role="status"></p>
+
+        <!-- Total Pengeluaran -->
+        <section class="total-card">
+            <div class="total-content">
+                <h2>Total Pengeluaran</h2>
+                <p id="totalPengeluaran">Rp. 0</p>
+            </div>
+
+            <div class="money-icon" aria-hidden="true">
+                <svg viewBox="0 0 100 100">
+                    <path d="M15 17h70v5H15z" fill="currentColor"/>
+                    <path d="M10 27h80v5H10z" fill="currentColor"/>
+                    <path d="M7 36h86v53H7z" fill="currentColor"/>
+                    <text x="50" y="72" text-anchor="middle"
+                        font-size="43" fill="white"
+                        font-family="Arial, sans-serif">$</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Grafik -->
+        <div class="charts-grid">
+
+            <!-- Rekap Servis -->
+            <section class="chart-card">
+                <h2>Rekap Servis</h2>
+
+                <div class="pie-content">
+                    <div
+                        id="pieChart"
+                        class="pie-chart"
+                        role="img"
+                        aria-label="Grafik lingkaran rekap jenis servis">
+                    </div>
+
+                    <div id="pieLegend" class="pie-legend"></div>
+                </div>
+            </section>
+
+            <!-- Grafik Pengeluaran -->
+            <section class="chart-card">
+                <h2>Grafik Pengeluaran</h2>
+
+                <div class="bar-chart" id="barChart">
+                    <div class="y-axis" id="yAxis"></div>
+                    <div class="bar-plot" id="barPlot"></div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="laporan.js"></script>
+</body>
+</html>

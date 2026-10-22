@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - Aplikasi Pencatatan Servis</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <!-- Header Website -->
+    <header class="header">
+        <div class="header-logo">
+            <img src="polibatamLogo.png" alt="Logo Aplikasi">
+        </div>
+        <h1>
+            Aplikasi Pencatatan Servis<br>
+            Kendaraan Pribadi
+        </h1>
+    </header>
+
+    <!-- Kontainer Registrasi -->
+    <main class="register-container">
+        <section class="register-card">
+
+            <!-- Identitas Aplikasi -->
+            <div class="card-header">
+                <div class="main-logo">
+                    <img src="polibatamLogo.png" alt="Logo Aplikasi">
+                </div>
+
+                <div class="app-info">
+                    <h2>
+                        Aplikasi Pencatatan Servis<br>
+                        Kendaraan Pribadi
+                    </h2>
+
+                    <p>
+                        Catat Servis Kendaraan Anda,<br>
+                        agar selalu dalam kondisi terbaik
+                    </p>
+                </div>
+            </div>
+
+            <!-- Form Daftar Akun -->
+            <div class="card-body">
+                <h3>Daftar Akun</h3>
+
+                <p class="description">
+                    Silahkan isi data diri Anda untuk membuat akun.
+                </p>
+
+                <form id="registerForm">
+
+                    <!-- Nama Lengkap -->
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="7" r="4" />
+                                <path d="M4 21v-2a8 8 0 0 1 16 0v2z" />
+                            </svg>
+                        </span>
+
+                        <input type="text" id="nama" placeholder="Nama Lengkap" autocomplete="name" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="4" width="20" height="16" />
+                                <path d="m2 5 10 8 10-8" />
+                            </svg>
+                        </span>
+
+                        <input type="email" id="email" placeholder="Email" autocomplete="email" required>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="10" width="18" height="12" />
+                                <path d="M6 10V7a6 6 0 0 1 12 0v3" />
+                            </svg>
+                        </span>
+
+                        <input type="password" id="password" placeholder="Password" autocomplete="new-password"
+                            minlength="8" required>
+                    </div>
+
+                    <!-- Konfirmasi Password -->
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="10" width="18" height="12" />
+                                <path d="M6 10V7a6 6 0 0 1 12 0v3" />
+                            </svg>
+                        </span>
+
+                        <input type="password" id="konfirmasiPassword" placeholder="Konfirmasi Password"
+                            autocomplete="new-password" minlength="8" required>
+                    </div>
+
+                    <!-- Tombol Daftar -->
+                    <button type="submit" class="btn-register">
+                        Daftar
+                    </button>
+
+                    <p id="pesan" class="pesan" role="status"></p>
+
+                    <!-- Pemisah -->
+                    <div class="divider">
+                        <span></span>
+                        <p>atau</p>
+                        <span></span>
+                    </div>
+
+                    <!-- Link Login -->
+                    <p class="login-link">
+                        Sudah punya akun?
+                        <a href="login2.html">Masuk di sini</a>
+                    </p>
+
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

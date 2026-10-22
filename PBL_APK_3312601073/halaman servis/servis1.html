@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Servis - Servisku</title>
+    <link rel="stylesheet" href="servis1.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="brand">
+            <img src="polibatamLogo.png" alt="Logo Servisku">
+            <span>Servisku</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 10.5 12 3l9 7.5"/>
+                    <path d="M5.5 9v12h13V9M9.5 21v-7h5v7"/>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="kendaraan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="7" cy="12" r="4"/>
+                    <circle cx="17" cy="12" r="4"/>
+                    <path d="M7 12h10M11 9l2 6"/>
+                </svg>
+                <span>Kendaraan</span>
+            </a>
+
+            <a href="servis1.html" class="nav-link active">
+                <svg viewBox="0 0 24 24">
+                    <path d="m14.5 6.5 3-3a6 6 0 0 0-7.8 7.8L3 18a2.1 2.1 0 0 0 3 3l6.7-6.7a6 6 0 0 0 7.8-7.8l-3 3z"/>
+                    <path d="m3 3 18 18"/>
+                </svg>
+                <span>Servis</span>
+            </a>
+
+            <a href="laporan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 2h9l5 5v15H6z"/>
+                    <path d="M15 2v6h5M9 12h7M9 16h7"/>
+                </svg>
+                <span>Laporan</span>
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="9" r="3"/>
+                    <path d="M6.5 18a6 6 0 0 1 11 0"/>
+                </svg>
+                <span>Profil</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Konten Riwayat Servis -->
+    <main class="service-container">
+
+        <h1 class="page-title">Riwayat Servis</h1>
+
+        <!-- Pencarian -->
+        <div class="search-box">
+            <input
+                type="search"
+                id="cariServis"
+                placeholder="Search"
+                aria-label="Cari riwayat servis"
+            >
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="10.5" cy="10.5" r="6.5"/>
+                <path d="m15.5 15.5 5 5"/>
+            </svg>
+        </div>
+
+        <!-- Tombol Tambah Servis -->
+        <div class="add-service-container">
+            <a href="tambahservis.html" class="btn-add-service">
+                Tambah Servis
+            </a>
+        </div>
+
+        <!-- Tabel Riwayat Servis -->
+        <div class="table-container">
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Kendaraan</th>
+                        <th>Jenis Servis</th>
+                        <th>Biaya</th>
+                        <th aria-label="Detail"></th>
+                    </tr>
+                </thead>
+
+                <tbody id="daftarServis">
+                    <tr data-id="1">
+                        <td>12 Mei 2026</td>
+                        <td>Avanza</td>
+                        <td>Ganti Oli Mesin</td>
+                        <td>Rp. 250.000</td>
+                        <td class="detail-cell">
+                            <a
+                                href="detailservis.html?id=1"
+                                class="btn-detail"
+                                aria-label="Detail servis Avanza"
+                                title="Lihat detail servis"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 3 21 12 6 21Z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr data-id="2">
+                        <td>24 Mei 2026</td>
+                        <td>Beat</td>
+                        <td>Cek Rem</td>
+                        <td>Rp. 100.000</td>
+                        <td class="detail-cell">
+                            <a
+                                href="detailservis.html?id=2"
+                                class="btn-detail"
+                                aria-label="Detail servis Beat"
+                                title="Lihat detail servis"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 3 21 12 6 21Z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr data-id="3">
+                        <td>26 Mei 2026</td>
+                        <td>Scoopy</td>
+                        <td>Ganti Ban</td>
+                        <td>Rp. 200.000</td>
+                        <td class="detail-cell">
+                            <a
+                                href="detailservis.html?id=3"
+                                class="btn-detail"
+                                aria-label="Detail servis Scoopy"
+                                title="Lihat detail servis"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 3 21 12 6 21Z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr data-id="4">
+                        <td>27 Mei 2026</td>
+                        <td>Beat</td>
+                        <td>Ganti Filter Udara</td>
+                        <td>Rp. 80.000</td>
+                        <td class="detail-cell">
+                            <a
+                                href="detailservis.html?id=4"
+                                class="btn-detail"
+                                aria-label="Detail servis Beat"
+                                title="Lihat detail servis"
+                            >
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6 3 21 12 6 21Z"/>
+                                </svg>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="empty-message" id="pesanKosong" hidden>
+            Riwayat servis tidak ditemukan.
+        </p>
+
+    </main>
+
+    <script src="servis1.js"></script>
+</body>
+</html>

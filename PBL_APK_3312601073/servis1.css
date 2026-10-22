@@ -1,0 +1,414 @@
+/* Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    min-height: 71px;
+    display: flex;
+    align-items: stretch;
+    background-color: #f7f7f7;
+    border: 1px solid #dddddd;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 15px;
+    color: #111111;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+    display: block;
+}
+
+.brand span {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+}
+
+.nav-link {
+    min-width: 0;
+    flex: 1;
+    max-width: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 0 12px;
+    color: #222222;
+    text-decoration: none;
+    font-size: 16px;
+    border-left: 1px solid #bdbdbd;
+    position: relative;
+}
+
+.nav-link:last-child {
+    border-right: 1px solid #bdbdbd;
+}
+
+.nav-link svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: #777777;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #3996d2;
+    bottom: 0;
+    left: 8px;
+    right: 5px;
+}
+
+.nav-link:hover {
+    background-color: #eeeeee;
+}
+
+.user-icon {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #777777;
+    text-decoration: none;
+}
+
+.user-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: #777777;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Konten Riwayat Servis */
+.service-container {
+    width: 100%;
+    padding: 50px 4.8% 40px;
+}
+
+.page-title {
+    font-size: 27px;
+    line-height: 1.3;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Kolom Pencarian */
+.search-box {
+    width: 100%;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #b5b5b5;
+    padding: 0 5px;
+}
+
+.search-box input {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    flex: 1;
+    padding: 0;
+    border: none;
+    outline: none;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background: transparent;
+}
+
+.search-box input::placeholder {
+    color: #777777;
+    opacity: 1;
+}
+
+.search-box svg {
+    width: 19px;
+    height: 19px;
+    margin-left: 10px;
+    fill: none;
+    stroke: #77afc5;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+/* Tombol Tambah Servis */
+.add-service-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0 12px;
+}
+
+.btn-add-service {
+    min-width: 174px;
+    min-height: 54px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 18px;
+    border: 1.5px solid #a8bfd8;
+    border-radius: 9px;
+    background-color: #d9e8fa;
+    color: #111111;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: background-color 0.2s;
+}
+
+.btn-add-service:hover {
+    background-color: #c5dcf5;
+}
+
+/* Tabel */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #555555;
+}
+
+.service-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.service-table th {
+    height: 68px;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+    border-bottom: 3px solid #222222;
+}
+
+.service-table td {
+    height: 105px;
+    padding: 12px 10px;
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid #777777;
+    overflow-wrap: break-word;
+}
+
+.service-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Lebar kolom */
+.service-table th:nth-child(1),
+.service-table td:nth-child(1) {
+    width: 24%;
+}
+
+.service-table th:nth-child(2),
+.service-table td:nth-child(2) {
+    width: 25%;
+}
+
+.service-table th:nth-child(3),
+.service-table td:nth-child(3) {
+    width: 26%;
+}
+
+.service-table th:nth-child(4),
+.service-table td:nth-child(4) {
+    width: 19%;
+}
+
+.service-table th:nth-child(5),
+.service-table td:nth-child(5) {
+    width: 6%;
+}
+
+/* Ikon Panah Detail */
+.detail-cell {
+    text-align: center;
+}
+
+.btn-detail {
+    display: inline-flex;
+    width: 30px;
+    height: 36px;
+    justify-content: center;
+    align-items: center;
+    color: #111111;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-detail svg {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linejoin: miter;
+}
+
+.btn-detail:hover {
+    color: #3996d2;
+    background-color: #eef6ff;
+}
+
+/* Pesan pencarian kosong */
+.empty-message {
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 16px;
+    color: #777777;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .brand {
+        padding: 5px 10px;
+        gap: 7px;
+    }
+
+    .brand span {
+        font-size: 20px;
+    }
+
+    .nav-link {
+        gap: 5px;
+        padding: 0 7px;
+        font-size: 14px;
+    }
+
+    .nav-link svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .user-icon {
+        width: 45px;
+    }
+
+    .service-container {
+        padding: 35px 3% 30px;
+    }
+
+    .service-table {
+        min-width: 760px;
+    }
+
+    .service-table th {
+        height: 60px;
+        font-size: 17px;
+    }
+
+    .service-table td {
+        height: 80px;
+        font-size: 16px;
+    }
+}
+
+/* HP */
+@media (max-width: 650px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .brand {
+        min-height: 58px;
+        width: 100%;
+    }
+
+    .nav-menu {
+        width: 100%;
+        order: 2;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .nav-link {
+        min-width: 100px;
+        min-height: 52px;
+        font-size: 12px;
+    }
+
+    .nav-link svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .user-icon {
+        position: absolute;
+        right: 5px;
+        top: 14px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .service-container {
+        padding: 25px 16px 30px;
+    }
+
+    .page-title {
+        font-size: 23px;
+        margin-bottom: 22px;
+    }
+
+    .search-box {
+        height: 48px;
+    }
+
+    .search-box input {
+        font-size: 14px;
+    }
+
+    .btn-add-service {
+        min-width: 145px;
+        min-height: 44px;
+        font-size: 15px;
+    }
+
+    .service-table {
+        min-width: 700px;
+    }
+
+    .service-table th {
+        height: 55px;
+        font-size: 15px;
+    }
+
+    .service-table td {
+        height: 65px;
+        font-size: 14px;
+    }
+}

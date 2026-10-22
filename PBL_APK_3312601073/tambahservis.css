@@ -1,0 +1,419 @@
+
+/* Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    min-height: 71px;
+    display: flex;
+    align-items: stretch;
+    background-color: #f7f7f7;
+    border: 1px solid #dddddd;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 15px;
+    color: #111111;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+    display: block;
+}
+
+.brand span {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+}
+
+.nav-link {
+    min-width: 0;
+    flex: 1;
+    max-width: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 0 12px;
+    color: #222222;
+    text-decoration: none;
+    font-size: 16px;
+    border-left: 1px solid #bdbdbd;
+    position: relative;
+}
+
+.nav-link:last-child {
+    border-right: 1px solid #bdbdbd;
+}
+
+.nav-link svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: #777777;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #3996d2;
+    bottom: 0;
+    left: 8px;
+    right: 5px;
+}
+
+.nav-link:hover {
+    background-color: #eeeeee;
+}
+
+.user-icon {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #777777;
+    text-decoration: none;
+}
+
+.user-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: #777777;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Konten Form */
+.form-container {
+    width: 100%;
+    padding: 53px 4.8% 45px;
+}
+
+.form-container h1 {
+    font-size: 29px;
+    font-weight: 700;
+    margin-bottom: 34px;
+}
+
+/* Dua Kolom */
+.form-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 5.2%;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.form-group label {
+    font-size: 20px;
+    line-height: 1.25;
+    margin: 0 6px 3px;
+}
+
+/* Input dan Dropdown */
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 77px;
+    padding: 0 16px;
+    border: 1.5px solid #777777;
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: #222222;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaaaaa;
+    opacity: 1;
+    font-weight: 600;
+}
+
+.form-group select {
+    cursor: pointer;
+    color: #aaaaaa;
+    font-weight: 600;
+}
+
+.form-group select:valid {
+    color: #222222;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #65a9c2;
+    box-shadow: 0 0 0 2px rgba(101, 169, 194, 0.12);
+}
+
+/* Catatan */
+.notes-group {
+    margin-top: 18px;
+}
+
+.notes-group label {
+    margin-bottom: 3px;
+}
+
+.form-group textarea {
+    width: 100%;
+    height: 227px;
+    padding: 27px;
+    resize: vertical;
+    border: 1.5px solid #777777;
+    border-radius: 35px;
+    outline: none;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    line-height: 1.5;
+    background-color: #ffffff;
+}
+
+/* Pesan Validasi */
+.form-message {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 15px;
+    color: #d93025;
+}
+
+/* Tombol Batal dan Simpan */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8%;
+    margin-top: 36px;
+}
+
+.form-actions button {
+    width: 27%;
+    max-width: 380px;
+    min-height: 115px;
+    border-radius: 17px;
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel {
+    background-color: #ffffff;
+    border: 1.5px solid #65a9c2;
+    color: #398cc8;
+}
+
+.btn-cancel:hover {
+    background-color: #f1f9fc;
+}
+
+.btn-save {
+    background-color: #cfe5fc;
+    border: 1.5px solid #91a8bf;
+    color: #111111;
+}
+
+.btn-save:hover {
+    background-color: #bcdafa;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .brand {
+        padding: 5px 10px;
+        gap: 7px;
+    }
+
+    .brand span {
+        font-size: 20px;
+    }
+
+    .nav-link {
+        gap: 5px;
+        padding: 0 7px;
+        font-size: 14px;
+    }
+
+    .nav-link svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .user-icon {
+        width: 45px;
+    }
+
+    .form-container {
+        padding: 35px 3% 35px;
+    }
+
+    .form-container h1 {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+
+    .form-grid {
+        column-gap: 3%;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 58px;
+        font-size: 15px;
+        padding: 0 12px;
+    }
+
+    .form-group textarea {
+        height: 180px;
+        font-size: 16px;
+        padding: 20px;
+    }
+
+    .form-actions button {
+        min-height: 75px;
+        font-size: 21px;
+    }
+}
+
+/* HP */
+@media (max-width: 650px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .brand {
+        min-height: 58px;
+        width: 100%;
+    }
+
+    .nav-menu {
+        width: 100%;
+        order: 2;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .nav-link {
+        min-width: 100px;
+        min-height: 52px;
+        font-size: 12px;
+    }
+
+    .nav-link svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .user-icon {
+        position: absolute;
+        right: 5px;
+        top: 14px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .form-container {
+        padding: 28px 16px 35px;
+    }
+
+    .form-container h1 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        row-gap: 12px;
+    }
+
+    .form-column {
+        gap: 12px;
+    }
+
+    .form-group label {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+        height: 49px;
+        font-size: 14px;
+        border-radius: 8px;
+        padding: 0 12px;
+    }
+
+    .notes-group {
+        margin-top: 16px;
+    }
+
+    .form-group textarea {
+        height: 150px;
+        padding: 16px;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+
+    .form-actions {
+        gap: 14px;
+        margin-top: 24px;
+    }
+
+    .form-actions button {
+        width: 50%;
+        min-height: 55px;
+        font-size: 17px;
+        border-radius: 10px;
+    }
+}

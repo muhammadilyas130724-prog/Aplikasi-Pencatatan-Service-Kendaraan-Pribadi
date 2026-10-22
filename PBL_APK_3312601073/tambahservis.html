@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Servis - Servisku</title>
+    <link rel="stylesheet" href="tambahservis.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="brand">
+            <img src="polibatamLogo.png" alt="Logo Servisku">
+            <span>Servisku</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 10.5 12 3l9 7.5"/>
+                    <path d="M5.5 9v12h13V9M9.5 21v-7h5v7"/>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="kendaraan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="7" cy="12" r="4"/>
+                    <circle cx="17" cy="12" r="4"/>
+                    <path d="M7 12h10M11 9l2 6"/>
+                </svg>
+                <span>Kendaraan</span>
+            </a>
+
+            <a href="servis1.html" class="nav-link active">
+                <svg viewBox="0 0 24 24">
+                    <path d="m14.5 6.5 3-3a6 6 0 0 0-7.8 7.8L3 18a2.1 2.1 0 0 0 3 3l6.7-6.7a6 6 0 0 0 7.8-7.8l-3 3z"/>
+                    <path d="m3 3 18 18"/>
+                </svg>
+                <span>Servis</span>
+            </a>
+
+            <a href="laporan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 2h9l5 5v15H6z"/>
+                    <path d="M15 2v6h5M9 12h7M9 16h7"/>
+                </svg>
+                <span>Laporan</span>
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="9" r="3"/>
+                    <path d="M6.5 18a6 6 0 0 1 11 0"/>
+                </svg>
+                <span>Profil</span>
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- Form Tambah Servis -->
+    <main class="form-container">
+
+        <h1>Tambah Servis</h1>
+
+        <form id="formTambahServis">
+
+            <div class="form-grid">
+
+                <!-- Kolom Kiri -->
+                <div class="form-column">
+
+                    <div class="form-group">
+                        <label for="namaKendaraan">Nama Kendaraan</label>
+
+                        <select id="namaKendaraan" required>
+                            <option value="">Memuat kendaraan...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggalServis">Tanggal Servis</label>
+
+                        <input
+                            type="date"
+                            id="tanggalServis"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenisServis">Jenis Servis</label>
+
+                        <select id="jenisServis" required>
+                            <option value="">Pilih Jenis Servis</option>
+                            <option value="Ganti Oli Mesin">Ganti Oli Mesin</option>
+                            <option value="Cek Rem">Cek Rem</option>
+                            <option value="Ganti Ban">Ganti Ban</option>
+                            <option value="Ganti Filter Udara">Ganti Filter Udara</option>
+                            <option value="Servis Mesin">Servis Mesin</option>
+                            <option value="Tune Up">Tune Up</option>
+                            <option value="Servis Lainnya">Servis Lainnya</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- Kolom Kanan -->
+                <div class="form-column">
+
+                    <div class="form-group">
+                        <label for="jarakTempuh">Jarak Tempuh (km)</label>
+
+                        <input
+                            type="number"
+                            id="jarakTempuh"
+                            min="0"
+                            step="1"
+                            placeholder="Masukkan Jarak Tempuh (km) Kendaraan Anda"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="biaya">Biaya</label>
+
+                        <input
+                            type="number"
+                            id="biaya"
+                            min="0"
+                            step="1"
+                            placeholder="Contoh: RP. 250.000"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servisSelanjutnya">Servis Selanjutnya</label>
+
+                        <input
+                            type="date"
+                            id="servisSelanjutnya"
+                        >
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Catatan -->
+            <div class="form-group notes-group">
+                <label for="catatan">Catatan</label>
+
+                <textarea
+                    id="catatan"
+                    placeholder="Masukkan Catatan Servis (Opsional)"
+                ></textarea>
+            </div>
+
+            <p class="form-message" id="pesanForm" role="status"></p>
+
+            <!-- Tombol Form -->
+            <div class="form-actions">
+                <button type="button" class="btn-cancel" id="btnBatal">
+                    Batal
+                </button>
+
+                <button type="submit" class="btn-save">
+                    Simpan
+                </button>
+            </div>
+
+        </form>
+
+    </main>
+
+    <script src="tambahservis.js"></script>
+</body>
+</html>

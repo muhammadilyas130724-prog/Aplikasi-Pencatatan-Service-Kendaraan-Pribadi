@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aplikasi Pencatatan Servis</title>
+    <link rel="stylesheet" href="login2.css">
+</head>
+<body>
+
+    <!-- Header Website -->
+    <header class="header">
+        <div class="header-logo">
+            <img src="polibatamLogo.png" alt="Logo Aplikasi">
+        </div>
+
+        <h1>
+            Aplikasi Pencatatan Servis<br>
+            Kendaraan Pribadi
+        </h1>
+    </header>
+
+    <!-- Kontainer Login -->
+    <main class="login-container">
+        <section class="login-card">
+
+            <!-- Identitas Aplikasi -->
+            <div class="card-header">
+                <div class="main-logo">
+                    <img src="polibatamLogo.png" alt="Logo Aplikasi">
+                </div>
+
+                <div class="app-info">
+                    <h2>
+                        Aplikasi Pencatatan Servis<br>
+                        Kendaraan Pribadi
+                    </h2>
+
+                    <p>
+                        Catat Servis Kendaraan Anda,<br>
+                        agar selalu dalam kondisi terbaik
+                    </p>
+                </div>
+            </div>
+
+            <!-- Form Login -->
+            <div class="card-body">
+                <h3>Masuk ke Akun</h3>
+
+                <p class="description">
+                    Silahkan login untuk melanjutkan.
+                </p>
+
+                <form id="loginForm">
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="2" y="4" width="20" height="16"/>
+                                <path d="m2 5 10 8 10-8"/>
+                            </svg>
+                        </span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Email"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <!-- Password -->
+                    <div class="input-group">
+                        <span class="input-icon">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3" y="10" width="18" height="12"/>
+                                <path d="M6 10V7a6 6 0 0 1 12 0v3"/>
+                            </svg>
+                        </span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Password"
+                            autocomplete="current-password"
+                            required
+                        >
+                    </div>
+
+                    <!-- Tombol Masuk -->
+                    <button type="submit" class="btn-login">
+                        Masuk
+                    </button>
+
+                    <p id="pesan" class="pesan" role="status"></p>
+
+                    <!-- Garis Pemisah -->
+                    <div class="divider">
+                        <span></span>
+                        <p>atau</p>
+                        <span></span>
+                    </div>
+
+                    <!-- Link Registrasi -->
+                    <p class="register-link">
+                        Belum punya akun?
+                        <a href="login.html">Daftar di sini</a>
+                    </p>
+
+                </form>
+            </div>
+
+            <!-- Gambar Bagian Bawah -->
+            <div class="login-image">
+                <img
+                    src="images/gambar-login.jpg"
+                    alt="Ilustrasi servis kendaraan"
+                >
+            </div>
+
+        </section>
+    </main>
+
+    <script src="login2.js"></script>
+</body>
+</html>

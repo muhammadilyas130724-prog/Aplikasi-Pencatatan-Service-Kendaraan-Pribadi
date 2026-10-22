@@ -1,0 +1,460 @@
+
+/* Pengaturan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #111111;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    min-height: 71px;
+    display: flex;
+    align-items: stretch;
+    background-color: #f7f7f7;
+    border: 1px solid #dddddd;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 15px;
+    color: #111111;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.brand img {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+    display: block;
+}
+
+.brand span {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+}
+
+.nav-link {
+    min-width: 0;
+    flex: 1;
+    max-width: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 0 12px;
+    color: #222222;
+    text-decoration: none;
+    font-size: 16px;
+    border-left: 1px solid #bdbdbd;
+    position: relative;
+}
+
+.nav-link:last-child {
+    border-right: 1px solid #bdbdbd;
+}
+
+.nav-link svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: #777777;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #3996d2;
+    bottom: 0;
+    left: 8px;
+    right: 5px;
+}
+
+.nav-link:hover {
+    background-color: #eeeeee;
+}
+
+.user-icon {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #777777;
+    text-decoration: none;
+}
+
+.user-icon svg {
+    width: 27px;
+    height: 27px;
+    fill: none;
+    stroke: #777777;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Konten Detail */
+.detail-container {
+    width: 100%;
+    padding: 40px 2.8% 25px;
+}
+
+/* Kartu Utama */
+.detail-card {
+    width: 100%;
+    border: 1px solid #888888;
+    border-radius: 48px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* Bagian Kendaraan */
+.vehicle-header {
+    min-height: 141px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 25px 55px;
+    border-bottom: 1.5px solid #333333;
+}
+
+.vehicle-icon {
+    width: 115px;
+    min-width: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+}
+
+.vehicle-icon svg {
+    width: 82px;
+    height: 82px;
+    display: block;
+}
+
+.vehicle-heading {
+    min-width: 0;
+}
+
+.vehicle-heading h1 {
+    font-size: 29px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.vehicle-meta {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    color: #888888;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.meta-divider {
+    width: 1px;
+    height: 25px;
+    background-color: #aaaaaa;
+}
+
+/* Rincian Servis */
+.detail-information {
+    padding: 27px 64px 34px;
+}
+
+.detail-row {
+    display: grid;
+    grid-template-columns: minmax(220px, 30%) minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    min-height: 60px;
+    padding: 10px 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.detail-label {
+    color: #222222;
+}
+
+.detail-value {
+    overflow-wrap: anywhere;
+}
+
+/* Tombol Edit dan Hapus */
+.detail-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    margin-top: 42px;
+}
+
+.detail-actions button {
+    width: 25%;
+    max-width: 360px;
+    min-height: 101px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    border-radius: 16px;
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.detail-actions svg {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.btn-edit {
+    background-color: #dceafa;
+    border: 1px solid #c0d2e7;
+    color: #4195c4;
+}
+
+.btn-edit:hover {
+    background-color: #c9dff7;
+}
+
+.btn-delete {
+    background-color: #f7d6d6;
+    border: 1px solid #e5b8b8;
+    color: #c95b65;
+}
+
+.btn-delete:hover {
+    background-color: #f2c4c4;
+}
+
+.detail-message {
+    margin-top: 20px;
+    text-align: center;
+    color: #666666;
+    font-size: 15px;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .brand {
+        padding: 5px 10px;
+        gap: 7px;
+    }
+
+    .brand span {
+        font-size: 20px;
+    }
+
+    .nav-link {
+        gap: 5px;
+        padding: 0 7px;
+        font-size: 14px;
+    }
+
+    .nav-link svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .user-icon {
+        width: 45px;
+    }
+
+    .detail-container {
+        padding: 30px 3% 25px;
+    }
+
+    .detail-card {
+        border-radius: 32px;
+    }
+
+    .vehicle-header {
+        min-height: 120px;
+        gap: 25px;
+        padding: 20px 30px;
+    }
+
+    .vehicle-icon {
+        width: 75px;
+        min-width: 75px;
+    }
+
+    .vehicle-icon svg {
+        width: 65px;
+        height: 65px;
+    }
+
+    .vehicle-heading h1 {
+        font-size: 24px;
+    }
+
+    .vehicle-meta {
+        gap: 14px;
+        font-size: 17px;
+    }
+
+    .detail-information {
+        padding: 20px 35px 25px;
+    }
+
+    .detail-row {
+        grid-template-columns: minmax(150px, 32%) minmax(0, 1fr);
+        font-size: 16px;
+        min-height: 50px;
+    }
+
+    .detail-actions {
+        gap: 8%;
+        margin-top: 30px;
+    }
+
+    .detail-actions button {
+        width: 30%;
+        min-height: 72px;
+        gap: 10px;
+        font-size: 22px;
+        border-radius: 12px;
+    }
+}
+
+/* HP */
+@media (max-width: 650px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .brand {
+        min-height: 58px;
+        width: 100%;
+    }
+
+    .nav-menu {
+        width: 100%;
+        order: 2;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+
+    .nav-link {
+        min-width: 100px;
+        min-height: 52px;
+        font-size: 12px;
+    }
+
+    .nav-link svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .user-icon {
+        position: absolute;
+        right: 5px;
+        top: 14px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .detail-container {
+        padding: 22px 14px 25px;
+    }
+
+    .detail-card {
+        border-radius: 25px;
+    }
+
+    .vehicle-header {
+        min-height: 105px;
+        gap: 12px;
+        padding: 18px 14px;
+    }
+
+    .vehicle-icon {
+        width: 55px;
+        min-width: 55px;
+    }
+
+    .vehicle-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .vehicle-heading h1 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .vehicle-meta {
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .meta-divider {
+        height: 18px;
+    }
+
+    .detail-information {
+        padding: 16px 18px 20px;
+    }
+
+    .detail-row {
+        grid-template-columns: 40% minmax(0, 1fr);
+        gap: 10px;
+        min-height: 48px;
+        padding: 9px 0;
+        font-size: 14px;
+    }
+
+    .detail-actions {
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .detail-actions button {
+        width: 50%;
+        min-height: 53px;
+        gap: 7px;
+        padding: 8px;
+        font-size: 16px;
+        border-radius: 10px;
+    }
+
+    .detail-actions svg {
+        width: 22px;
+        height: 22px;
+    }
+}

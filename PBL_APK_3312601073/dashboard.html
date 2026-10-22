@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Servisku</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="brand">
+            <img src="polibatamLogo.png" alt="Logo Servisku">
+            <span>Servisku</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-link active">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 10.5 12 3l9 7.5"/>
+                    <path d="M5.5 9v12h13V9M9.5 21v-7h5v7"/>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="kendaraan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="7" cy="12" r="4"/>
+                    <circle cx="17" cy="12" r="4"/>
+                    <path d="M7 12h10M11 9l2 6"/>
+                </svg>
+                <span>Kendaraan</span>
+            </a>
+
+            <a href="servis1.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="m14.5 6.5 3-3a6 6 0 0 0-7.8 7.8L3 18a2.1 2.1 0 0 0 3 3l6.7-6.7a6 6 0 0 0 7.8-7.8l-3 3z"/>
+                    <path d="m3 3 18 18"/>
+                </svg>
+                <span>Servis</span>
+            </a>
+
+            <a href="laporan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 2h9l5 5v15H6z"/>
+                    <path d="M15 2v6h5M9 12h7M9 16h7"/>
+                </svg>
+                <span>Laporan</span>
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="9" r="3"/>
+                    <path d="M6.5 18a6 6 0 0 1 11 0"/>
+                </svg>
+                <span>Profil</span>
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- Konten Dashboard -->
+    <main class="dashboard-container">
+
+        <h1 class="page-title">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 10.5 12 3l9 7.5"/>
+                <path d="M5.5 9v12h13V9M9.5 21v-7h5v7"/>
+            </svg>
+            Dashboard
+        </h1>
+
+        <!-- Kartu Ringkasan -->
+        <section class="summary-cards">
+
+            <article class="summary-card">
+                <h2>TOTAL KENDARAAN</h2>
+
+                <div class="summary-content">
+                    <p class="summary-value" id="totalKendaraan">3</p>
+
+                    <svg class="summary-icon" viewBox="0 0 24 24">
+                        <circle cx="18" cy="5" r="4"/>
+                        <circle cx="18" cy="5" r="1.2"/>
+                        <path d="m15.2 7.8-12 12 2.8 2.8 3-3v-3h3v-3h3l2.2-2.2z"/>
+                    </svg>
+                </div>
+            </article>
+
+            <article class="summary-card">
+                <h2>TOTAL SERVICE</h2>
+
+                <div class="summary-content">
+                    <p class="summary-value" id="totalServis">3</p>
+
+                    <svg class="summary-icon" viewBox="0 0 24 24">
+                        <path d="M14 6.5a6 6 0 0 0-7.5 7.5L2 18.5 5.5 22l4.5-4.5a6 6 0 0 0 7.5-7.5l-3 3-3-3z"/>
+                        <path d="m14 3 7 7M15 2l7 7M3 3l18 18"/>
+                    </svg>
+                </div>
+            </article>
+
+            <article class="summary-card">
+                <h2>SERVICE TERAKHIR</h2>
+
+                <div class="summary-content">
+                    <p class="last-service-date" id="serviceTerakhir">
+                        26 Mei 2026
+                    </p>
+
+                    <svg class="summary-icon calendar-icon" viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="18" rx="1"/>
+                        <path d="M7 2v5M17 2v5M3 9h18"/>
+                        <path d="M16 14a3 3 0 0 0-6 0c0 4-2 4-2 6h10c0-2-2-2-2-6"/>
+                        <path d="M12 22h2"/>
+                    </svg>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Tabel Servis Terbaru -->
+        <section class="service-table-container">
+            <table class="service-table">
+                <thead>
+                    <tr>
+                        <th>Kendaraan</th>
+                        <th>Jenis Servis</th>
+                        <th>Tanggal</th>
+                    </tr>
+                </thead>
+
+                <tbody id="serviceTableBody">
+                    <tr>
+                        <td>Toyota Avanza</td>
+                        <td>Ganti Oli Mesin</td>
+                        <td>12 Mei 2026</td>
+                    </tr>
+
+                    <tr>
+                        <td>Honda Beat</td>
+                        <td>Cek Rem</td>
+                        <td>24 Mei 2026</td>
+                    </tr>
+
+                    <tr>
+                        <td>Honda Scoopy</td>
+                        <td>Ganti Ban</td>
+                        <td>26 Mei 2026</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendaraan Saya - Servisku</title>
+    <link rel="stylesheet" href="kendaraan.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="brand">
+            <img src="polibatamLogo.png" alt="Logo Servisku">
+            <span>Servisku</span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 10.5 12 3l9 7.5"/>
+                    <path d="M5.5 9v12h13V9M9.5 21v-7h5v7"/>
+                </svg>
+                Dashboard
+            </a>
+
+            <a href="kendaraan.html" class="nav-link active">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="7" cy="12" r="4"/>
+                    <circle cx="17" cy="12" r="4"/>
+                    <path d="M7 12h10M11 9l2 6"/>
+                </svg>
+                Kendaraan
+            </a>
+
+            <a href="servis1.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="m14.5 6.5 3-3a6 6 0 0 0-7.8 7.8L3 18a2.1 2.1 0 0 0 3 3l6.7-6.7a6 6 0 0 0 7.8-7.8l-3 3z"/>
+                    <path d="m3 3 18 18"/>
+                </svg>
+                Servis
+            </a>
+
+            <a href="laporan.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M6 2h9l5 5v15H6z"/>
+                    <path d="M15 2v6h5M9 12h7M9 16h7"/>
+                </svg>
+                Laporan
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9"/>
+                    <circle cx="12" cy="9" r="3"/>
+                    <path d="M6.5 18a6 6 0 0 1 11 0"/>
+                </svg>
+                Profil
+            </a>
+        </nav>
+
+    </header>
+
+    <!-- Konten Kendaraan -->
+    <main class="vehicle-container">
+
+        <div class="page-heading">
+            <h1>Kendaraan Saya</h1>
+
+            <button type="button" class="btn-add" id="btnTambah">
+                <svg viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v12M6 12h12"/>
+                </svg>
+                Tambah Kendaraan
+            </button>
+        </div>
+
+        <!-- Pencarian Kendaraan -->
+        <div class="search-box">
+            <input
+                type="search"
+                id="cariKendaraan"
+                placeholder="Cari Kendaraan"
+                aria-label="Cari kendaraan"
+            >
+
+            <svg viewBox="0 0 24 24">
+                <circle cx="10.5" cy="10.5" r="6.5"/>
+                <path d="m15.5 15.5 5 5"/>
+            </svg>
+        </div>
+
+        <!-- Daftar Kendaraan -->
+        <section class="vehicle-list" id="daftarKendaraan">
+
+            <!-- Kendaraan 1 -->
+            <article class="vehicle-card" data-id="1">
+                <div class="vehicle-icon" data-type="mobil">
+                    <svg viewBox="0 0 64 64" aria-label="Ikon mobil">
+                        <path fill="currentColor" d="M13 27 18 13Q20 8 26 8H38Q44 8 46 13L51 27Q58 29 58 37V49Q58 52 55 52H51V57H44V52H20V57H13V52H9Q6 52 6 49V37Q6 29 13 27Z"/>
+                        <path fill="white" d="M20 16Q21 13 25 13H39Q43 13 44 16L47 26H17Z"/>
+                        <circle cx="15" cy="39" r="4" fill="white"/>
+                        <circle cx="49" cy="39" r="4" fill="white"/>
+                    </svg>
+                </div>
+
+                <div class="vehicle-info">
+                    <h2>Toyota Avanza</h2>
+                    <p>BP 1234 KZ</p>
+                    <p>Tahun 2018</p>
+                </div>
+
+                <div class="vehicle-actions">
+                    <button type="button" class="btn-edit" data-action="edit" data-id="1">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 4H4v16h16v-8"/>
+                            <path d="m10 14 9-9 3 3-9 9-4 1z"/>
+                        </svg>
+                        Edit
+                    </button>
+
+                    <button type="button" class="btn-delete" data-action="delete" data-id="1">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 6h18M8 6V3h8v3M6 6l1 15h10l1-15M10 10v7M14 10v7"/>
+                        </svg>
+                        Hapus
+                    </button>
+                </div>
+            </article>
+
+            <!-- Kendaraan 2 -->
+            <article class="vehicle-card" data-id="2">
+                <div class="vehicle-icon" data-type="motor">
+                    <svg viewBox="0 0 64 64" aria-label="Ikon motor">
+                        <circle cx="13" cy="45" r="10" fill="none" stroke="currentColor" stroke-width="5"/>
+                        <circle cx="51" cy="45" r="10" fill="none" stroke="currentColor" stroke-width="5"/>
+                        <path d="M13 45 24 30H36L43 45H26L20 36M36 30 43 25H51M24 30 19 24H29" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="32" cy="13" r="5" fill="currentColor"/>
+                        <path d="M31 19 25 29 37 34 43 29 48 35" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <div class="vehicle-info">
+                    <h2>Honda Beat</h2>
+                    <p>BP 4567 MN</p>
+                    <p>Tahun 2019</p>
+                </div>
+
+                <div class="vehicle-actions">
+                    <button type="button" class="btn-edit" data-action="edit" data-id="2">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 4H4v16h16v-8"/>
+                            <path d="m10 14 9-9 3 3-9 9-4 1z"/>
+                        </svg>
+                        Edit
+                    </button>
+
+                    <button type="button" class="btn-delete" data-action="delete" data-id="2">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 6h18M8 6V3h8v3M6 6l1 15h10l1-15M10 10v7M14 10v7"/>
+                        </svg>
+                        Hapus
+                    </button>
+                </div>
+            </article>
+
+        </section>
+
+        <p class="empty-message" id="pesanKosong" hidden>
+            Kendaraan tidak ditemukan.
+        </p>
+
+        <!-- Form Tambah/Edit Kendaraan -->
+        <div class="modal" id="modalKendaraan" hidden>
+            <section class="modal-content" role="dialog" aria-modal="true" aria-labelledby="judulForm">
+                <div class="modal-heading">
+                    <h2 id="judulForm">Tambah Kendaraan</h2>
+                    <button type="button" id="btnTutup" class="btn-close" aria-label="Tutup">&times;</button>
+                </div>
+
+                <form id="formKendaraan">
+                    <label for="namaKendaraan">Nama Kendaraan</label>
+                    <input type="text" id="namaKendaraan" placeholder="Contoh: Toyota Avanza" required>
+
+                    <label for="nomorPlat">Nomor Plat</label>
+                    <input type="text" id="nomorPlat" placeholder="Contoh: BP 1234 KZ" required>
+
+                    <label for="tahunKendaraan">Tahun Kendaraan</label>
+                    <input type="number" id="tahunKendaraan" min="1900" max="2099" placeholder="Contoh: 2020" required>
+
+                    <label for="jenisKendaraan">Jenis Kendaraan</label>
+                    <select id="jenisKendaraan" required>
+                        <option value="mobil">Mobil</option>
+                        <option value="motor">Motor</option>
+                    </select>
+
+                    <p class="form-error" id="pesanForm" role="status"></p>
+
+                    <div class="modal-actions">
+                        <button type="button" id="btnBatal" class="btn-cancel">Batal</button>
+                        <button type="submit" class="btn-save">Simpan</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+    </main>
+
+    <script src="kendaraan.js"></script>
+</body>
+</html>

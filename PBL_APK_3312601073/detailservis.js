@@ -112,64 +112,66 @@ function tampilkanDetail() {
 
     let savedServices = [];
 
-        try {
-            savedServices = JSON.parse(
-                localStorage.getItem("serviskuServices") || "[]"
-            );
-        } catch (error) {
-            savedServices = [];
-        }
-
-        let currentService = savedServices[selectedIndex] || {
-            vehicle: "Toyota Avanza",
-            plate: "BP 1234 KZ",
-            year: "2018",
-            date: "2026-05-12",
-            type: "Ganti Oli Mesin",
-            distance: "1980000",
-            cost: "250000",
-            notes: "Penggantian Oli Mesin dan Filter Oli"
-        };
-
-        function renderDetail() {
-            document.getElementById("detailVehicleName").textContent =
-                currentService.vehicle || "Toyota Avanza";
-            document.getElementById("detailPlate").textContent =
-                currentService.plate || "BP 1234 KZ";
-            document.getElementById("detailYear").textContent =
-                "Tahun " + (currentService.year || "2018");
-            document.getElementById("detailDate").textContent =
-                formatDate(currentService.date);
-            document.getElementById("detailType").textContent =
-                currentService.type || "-";
-            document.getElementById("detailDistance").textContent =
-                (currentService.distance || "1980000") + " km";
-            document.getElementById("detailCost").textContent =
-                formatCurrency(currentService.cost);
-            document.getElementById("detailNotes").textContent =
-                currentService.notes || "-";
-        }
-
-        renderDetail();
-
-        document.getElementById("editDetail").addEventListener("click", () => {
-            location.href = "editdata.html?edit=" + selectedIndex;
-        });
+    try {
+        savedServices = JSON.parse(
+            localStorage.getItem("serviskuServices") || "[]"
+        );
+    } catch (error) {
+        savedServices = [];
     }
 
-// Tombol Edit
+    let currentService = savedServices[selectedIndex] || {
+        vehicle: "Toyota Avanza",
+        plate: "BP 1234 KZ",
+        year: "2018",
+        date: "2026-05-12",
+        type: "Ganti Oli Mesin",
+        distance: "1980000",
+        cost: "250000",
+        notes: "Penggantian Oli Mesin dan Filter Oli"
+    };
+
+    function renderDetail() {
+        document.getElementById("detailVehicleName").textContent =
+            currentService.vehicle || "Toyota Avanza";
+        document.getElementById("detailPlate").textContent =
+            currentService.plate || "BP 1234 KZ";
+        document.getElementById("detailYear").textContent =
+            "Tahun " + (currentService.year || "2018");
+        document.getElementById("detailDate").textContent =
+            formatDate(currentService.date);
+        document.getElementById("detailType").textContent =
+            currentService.type || "-";
+        document.getElementById("detailDistance").textContent =
+            (currentService.distance || "1980000") + " km";
+        document.getElementById("detailCost").textContent =
+            formatCurrency(currentService.cost);
+        document.getElementById("namaBengkel").textContent =
+            currentService.Bengkel || "Surya Bengkel";
+        document.getElementById("detailNotes").textContent =
+            currentService.notes || "-";
+    }
+
+    renderDetail();
+
+    document.getElementById("editDetail").addEventListener("click", () => {
+        location.href = "editdata.html?edit=" + selectedIndex;
+    });
+}
+
+ // Tombol Edit
+
 btnEdit.addEventListener("click", function () {
     if (!idServis) {
-        alert("ID servis tidak ditemukan.");
+        alert("ID servis tidak ditemukan. Buka detail melalui riwayat servis.");
         return;
     }
 
     window.location.href =
-        "editdata.html?editId=" +
-        encodeURIComponent(idServis);
+        "editdata.html?editId=" + encodeURIComponent(idServis);
 });
 
-// Tombol Hapus
+ // Tombol Hapus
 btnHapus.addEventListener("click", function () {
     if (!idServis) {
         alert("ID servis tidak ditemukan.");
@@ -177,10 +179,12 @@ btnHapus.addEventListener("click", function () {
     }
 
     const yakin = confirm(
-        "Apakah kamu yakin ingin menghapus data servis ini?"
+        "Apakah kamu yakin ingin menghapus riwayat servis ini?"
     );
 
-    if (!yakin) return;
+    if (!yakin) {
+        return;
+    }
 
     const riwayat = bacaData(KEY_SERVIS);
 
@@ -189,22 +193,26 @@ btnHapus.addEventListener("click", function () {
     );
 
     if (index === -1) {
-        alert(
-            "Data ini belum tersimpan sebagai riwayat servis. " +
-            "Tidak ada data yang dihapus."
-        );
+        alert("Data servis tidak ditemukan.");
         return;
     }
 
     riwayat.splice(index, 1);
 
     try {
-        localStorage.setItem(KEY_SERVIS, JSON.stringify(riwayat));
-        window.location.href = "editdata.html";
+        localStorage.setItem(
+            KEY_SERVIS,
+            JSON.stringify(riwayat)
+        );
+
+        alert("Riwayat servis berhasil dihapus.");
+
+        window.location.href = "servis1.html";
     } catch (error) {
+        console.error("Gagal menghapus data servis:", error);
         alert("Data gagal dihapus. Silakan coba lagi.");
-        console.error(error);
     }
 });
+
 
 tampilkanDetail();

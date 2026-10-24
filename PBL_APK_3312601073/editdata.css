@@ -193,6 +193,36 @@ body {
     box-shadow: 0 0 0 2px rgba(101, 169, 194, 0.12);
 }
 
+/* Judul dan tautan kembali */
+.detail-main h1 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #2787bd;
+    font-size: 16px;
+    margin-bottom: 24px;
+    cursor: pointer;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Baris nama bengkel */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.detail-row strong {
+    text-align: right;
+}
+
 /* Catatan */
 .notes-group {
     margin-top: 18px;

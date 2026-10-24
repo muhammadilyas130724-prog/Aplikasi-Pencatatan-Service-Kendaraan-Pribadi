@@ -9,16 +9,16 @@
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- Navigasi utama -->
     <header class="navbar">
         <a href="dashboard.html" class="brand">
-            <img src="polibatamLogo.png" alt="Logo Servisku">
+            <img src="logo fire.png" alt="Logo Servisku">
             <span>Servisku</span>
         </a>
 
         <nav class="nav-menu">
             <a href="dashboard.html" class="nav-link">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M3 10.5 12 3l9 7.5"/>
                     <path d="M5.5 9v12h13V9M9.5 21v-7h5v7"/>
                 </svg>
@@ -26,7 +26,7 @@
             </a>
 
             <a href="kendaraan.html" class="nav-link">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="7" cy="12" r="4"/>
                     <circle cx="17" cy="12" r="4"/>
                     <path d="M7 12h10M11 9l2 6"/>
@@ -35,7 +35,7 @@
             </a>
 
             <a href="servis1.html" class="nav-link active">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="m14.5 6.5 3-3a6 6 0 0 0-7.8 7.8L3 18a2.1 2.1 0 0 0 3 3l6.7-6.7a6 6 0 0 0 7.8-7.8l-3 3z"/>
                     <path d="m3 3 18 18"/>
                 </svg>
@@ -43,7 +43,7 @@
             </a>
 
             <a href="laporan.html" class="nav-link">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M6 2h9l5 5v15H6z"/>
                     <path d="M15 2v6h5M9 12h7M9 16h7"/>
                 </svg>
@@ -51,7 +51,7 @@
             </a>
 
             <a href="profile.html" class="nav-link">
-                <svg viewBox="0 0 24 24">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <circle cx="12" cy="12" r="9"/>
                     <circle cx="12" cy="9" r="3"/>
                     <path d="M6.5 18a6 6 0 0 1 11 0"/>
@@ -62,108 +62,121 @@
 
     </header>
 
-    <!-- Form Tambah Servis -->
+    <!-- Form tambah servis -->
     <main class="form-container">
-
-        <h1>Tambah Servis</h1>
+        <h1 class="page-title">Tambah Servis</h1>
 
         <form id="formTambahServis">
-
             <div class="form-grid">
 
-                <!-- Kolom Kiri -->
-                <div class="form-column">
-
-                    <div class="form-group">
-                        <label for="namaKendaraan">Nama Kendaraan</label>
-
-                        <select id="namaKendaraan" required>
-                            <option value="">Memuat kendaraan...</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="tanggalServis">Tanggal Servis</label>
-
-                        <input
-                            type="date"
-                            id="tanggalServis"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="jenisServis">Jenis Servis</label>
-
-                        <select id="jenisServis" required>
-                            <option value="">Pilih Jenis Servis</option>
-                            <option value="Ganti Oli Mesin">Ganti Oli Mesin</option>
-                            <option value="Cek Rem">Cek Rem</option>
-                            <option value="Ganti Ban">Ganti Ban</option>
-                            <option value="Ganti Filter Udara">Ganti Filter Udara</option>
-                            <option value="Servis Mesin">Servis Mesin</option>
-                            <option value="Tune Up">Tune Up</option>
-                            <option value="Servis Lainnya">Servis Lainnya</option>
-                        </select>
-                    </div>
-
+                <!-- Nama kendaraan -->
+                <div class="form-group">
+                    <label for="namaKendaraan">Nama Kendaraan</label>
+                    <select id="namaKendaraan" name="namaKendaraan" required>
+                        <option value="" selected disabled>
+                            Masukkan Nama Kendaraan Anda
+                        </option>
+                        <option value="Avanza">Avanza</option>
+                        <option value="Beat">Beat</option>
+                        <option value="Scoopy">Scoopy</option>
+                        <option value="Scoopy">Vario</option>
+                        <option value="Scoopy">Beatstreet</option>
+                    </select>
                 </div>
 
-                <!-- Kolom Kanan -->
-                <div class="form-column">
+                <!-- Jarak tempuh -->
+                <div class="form-group">
+                    <label for="jarakTempuh">Jarak Tempuh (km)</label>
+                    <input
+                        type="number"
+                        id="jarakTempuh"
+                        name="jarakTempuh"
+                        min="0"
+                        step="1"
+                        placeholder="Masukkan Jarak Tempuh (km) Kendaraan Anda"
+                        required
+                    >
+                </div>
 
-                    <div class="form-group">
-                        <label for="jarakTempuh">Jarak Tempuh (km)</label>
+                <!-- Tanggal servis -->
+                <div class="form-group">
+                    <label for="tanggalServis">Tanggal Servis</label>
+                    <input
+                        type="date"
+                        id="tanggalServis"
+                        name="tanggalServis"
+                        required
+                    >
+                </div>
 
-                        <input
-                            type="number"
-                            id="jarakTempuh"
-                            min="0"
-                            step="1"
-                            placeholder="Masukkan Jarak Tempuh (km) Kendaraan Anda"
-                            required
-                        >
-                    </div>
+                <!-- Biaya -->
+                <div class="form-group">
+                    <label for="biaya">Biaya</label>
+                    <input
+                        type="number"
+                        id="biaya"
+                        name="biaya"
+                        min="0"
+                        step="1"
+                        placeholder="Contoh: RP. 250.000"
+                        required
+                    >
+                </div>
 
-                    <div class="form-group">
-                        <label for="biaya">Biaya</label>
+                <!-- Jenis servis -->
+                <div class="form-group">
+                    <label for="jenisServis">Jenis Servis</label>
+                    <select id="jenisServis" name="jenisServis" required>
+                        <option value="" selected disabled>
+                            Pilih Jenis Servis
+                        </option>
+                        <option value="Ganti Oli Mesin">Ganti Oli Mesin</option>
+                        <option value="Cek Rem">Cek Rem</option>
+                        <option value="Ganti Ban">Ganti Ban</option>
+                        <option value="Ganti Filter Udara">Ganti Filter Udara</option>
+                        <option value="Servis Berkala">Servis Berkala</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
 
-                        <input
-                            type="number"
-                            id="biaya"
-                            min="0"
-                            step="1"
-                            placeholder="Contoh: RP. 250.000"
-                            required
-                        >
-                    </div>
+                <!-- Servis berikutnya -->
+                <div class="form-group">
+                    <label for="servisSelanjutnya">Servis Selanjutnya</label>
+                    <input
+                        type="date"
+                        id="servisSelanjutnya"
+                        name="servisSelanjutnya"
+                    >
+                </div>
 
-                    <div class="form-group">
-                        <label for="servisSelanjutnya">Servis Selanjutnya</label>
+                <!-- Nama bengkel -->
+                <div class="form-group full-width"
+                    style="grid-column: 1 / -1; width: 100%;">
+                    <label for="namaBengkel">Nama Bengkel</label>
+                    <input
+                        type="text"
+                        id="namaBengkel"
+                        name="namaBengkel"
+                        placeholder="Masukkan Nama Bengkel"
+                        required
+                    >
+                </div>
 
-                        <input
-                            type="date"
-                            id="servisSelanjutnya"
-                        >
-                    </div>
-
+                <!-- Catatan -->
+                <div class="form-group full-width"
+                    style="grid-column: 1 / -1; width: 100%;">
+                    <label for="catatan">Catatan</label>
+                    <textarea
+                        id="catatan"
+                        name="catatan"
+                        placeholder="Masukkan Catatan Servis (Opsional)"
+                        rows="4"
+                    ></textarea>
                 </div>
 
             </div>
 
-            <!-- Catatan -->
-            <div class="form-group notes-group">
-                <label for="catatan">Catatan</label>
-
-                <textarea
-                    id="catatan"
-                    placeholder="Masukkan Catatan Servis (Opsional)"
-                ></textarea>
-            </div>
-
-            <p class="form-message" id="pesanForm" role="status"></p>
-
-            <!-- Tombol Form -->
+            <!-- Tombol aksi -->
             <div class="form-actions">
                 <button type="button" class="btn-cancel" id="btnBatal">
                     Batal
@@ -173,9 +186,8 @@
                     Simpan
                 </button>
             </div>
-
+        </div>
         </form>
-
     </main>
 
     <script src="tambahservis.js"></script>

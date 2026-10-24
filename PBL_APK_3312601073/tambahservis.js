@@ -1,191 +1,116 @@
 
-const form = document.getElementById("formTambahServis");
-const selectKendaraan = document.getElementById("namaKendaraan");
-const selectJenis = document.getElementById("jenisServis");
-const inputTanggal = document.getElementById("tanggalServis");
-const inputJarak = document.getElementById("jarakTempuh");
-const inputBiaya = document.getElementById("biaya");
-const inputSelanjutnya = document.getElementById("servisSelanjutnya");
-const inputCatatan = document.getElementById("catatan");
-const pesanForm = document.getElementById("pesanForm");
-const btnBatal = document.getElementById("btnBatal");
+"use strict";
 
-const KEY_KENDARAAN = "servisku_kendaraan";
-const KEY_SERVIS = "servisku_riwayat_servis";
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("formTambahServis");
+    const cancelButton = document.getElementById("btnBatal");
+        const urlParams = new URLSearchParams(window.location.search);
+    const editId = urlParams.get("id");
+    const modeEdit = editId !== null && editId !== "";
+    const pesanForm = document.getElementById("pesanForm");
 
-// Format tanggal untuk penyimpanan aman sebagai YYYY-MM-DD
-function tanggalHariIni() {
-    const sekarang = new Date();
-    const tahun = sekarang.getFullYear();
-    const bulan = String(sekarang.getMonth() + 1).padStart(2, "0");
-    const hari = String(sekarang.getDate()).padStart(2, "0");
-
-    return `${tahun}-${bulan}-${hari}`;
-}
-
-// Memuat daftar kendaraan
-function muatPilihanKendaraan() {
-    let kendaraan = [];
-
-    try {
-        const tersimpan = localStorage.getItem(KEY_KENDARAAN);
-
-        if (tersimpan) {
-            const data = JSON.parse(tersimpan);
-
-            if (Array.isArray(data)) {
-                kendaraan = data;
-            }
-        }
-    } catch (error) {
-        console.error("Gagal membaca daftar kendaraan.", error);
-    }
-
-    // Data contoh apabila daftar kendaraan belum tersimpan
-    if (kendaraan.length === 0) {
-        kendaraan = [
-            { id: 1, nama: "Toyota Avanza" },
-            { id: 2, nama: "Honda Beat" },
-            { id: 3, nama: "Honda Scoopy" }
-        ];
-    }
-
-    selectKendaraan.replaceChildren();
-
-    const pilihanAwal = document.createElement("option");
-    pilihanAwal.value = "";
-    pilihanAwal.textContent = "Masukkan Nama Kendaraan Anda";
-    pilihanAwal.disabled = true;
-    pilihanAwal.selected = true;
-
-    selectKendaraan.appendChild(pilihanAwal);
-
-    kendaraan.forEach(item => {
-        const option = document.createElement("option");
-
-        option.value = item.id;
-        option.textContent = item.nama;
-        option.dataset.nama = item.nama;
-
-        selectKendaraan.appendChild(option);
-    });
-}
-function isiFormEdit() {
-    if (!modeEdit) return;
-
-    const riwayat = bacaData(KEY_SERVIS);
-
-    dataEdit = riwayat.find(
-        item => String(item.id) === String(editId)
-    );
-
-    if (!dataEdit) {
-        alert("Data servis tidak ditemukan.");
-        window.location.href = "servis1.html";
+    if (!form) {
+        console.error("Form formTambahServis tidak ditemukan.");
+        alert("Form tidak ditemukan. Periksa ID pada tambahservis.html.");
         return;
     }
 
-    judulForm.textContent = "Edit Data Servis";
-
-    selectKendaraan.value = String(dataEdit.kendaraanId || "");
-
-    inputTanggal.value = dataEdit.tanggal || "";
-    selectJenis.value = dataEdit.jenis || "";
-    inputJarak.value = dataEdit.jarakTempuh ?? "";
-    inputBiaya.value = dataEdit.biaya ?? "";
-    inputSelanjutnya.value = dataEdit.servisSelanjutnya || "";
-    inputCatatan.value = dataEdit.catatan || "";
-}
-
-// Tombol Batal kembali ke halaman riwayat servis
-btnBatal.addEventListener("click", function () {
-    window.location.href = "servis1.html";
-});
-
-// Simpan data servis
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    pesanForm.textContent = "";
-
-    const pilihan = selectKendaraan.selectedOptions[0];
-    const namaKendaraan = pilihan?.dataset.nama || "";
-    const kendaraanId = selectKendaraan.value;
-
-    const tanggal = inputTanggal.value;
-    const jenis = selectJenis.value;
-    const jarak = Number(inputJarak.value);
-    const biaya = Number(inputBiaya.value);
-    const selanjutnya = inputSelanjutnya.value;
-    const catatan = inputCatatan.value.trim();
-
-    if (!kendaraanId || !namaKendaraan || !tanggal || !jenis) {
-        pesanForm.textContent =
-            "Silakan lengkapi data kendaraan, tanggal, dan jenis servis.";
-        return;
-    }
-
-    if (
-        !Number.isFinite(jarak) ||
-        jarak < 0 ||
-        !Number.isFinite(biaya) ||
-        biaya < 0
-    ) {
-        pesanForm.textContent =
-            "Jarak tempuh dan biaya harus berupa angka yang valid.";
-        return;
-    }
-
-    if (selanjutnya && selanjutnya < tanggal) {
-        pesanForm.textContent =
-            "Tanggal servis selanjutnya tidak boleh sebelum tanggal servis.";
-        return;
-    }
-
-    const dataBaru = {
-        id: Date.now(),
-        kendaraanId: kendaraanId,
-        kendaraan: namaKendaraan,
-        tanggal: tanggal,
-        jenis: jenis,
-        jarakTempuh: jarak,
-        biaya: biaya,
-        servisSelanjutnya: selanjutnya,
-        catatan: catatan
+    const getValue = id => {
+        const element = document.getElementById(id);
+        return element ? element.value.trim() : "";
     };
 
-    let riwayat = [];
+    function formatDate(dateString) {
+        if (!dateString) return "";
 
-    try {
-        const tersimpan = localStorage.getItem(KEY_SERVIS);
+        const [year, month, day] = dateString.split("-");
+        return new Intl.DateTimeFormat("id-ID", {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }).format(new Date(+year, +month - 1, +day));
+    }
 
-        if (tersimpan) {
-            const data = JSON.parse(tersimpan);
+    if (cancelButton) {
+        cancelButton.addEventListener("click", function () {
+            window.location.href = "servis1.html";
+        });
+    }
 
-            if (!Array.isArray(data)) {
-                throw new Error("Format riwayat servis tidak valid.");
-            }
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-            riwayat = data;
+        const vehicle = getValue("namaKendaraan");
+        const mileageText = getValue("jarakTempuh");
+        const date = getValue("tanggalServis");
+        const costText = getValue("biaya");
+        const type = getValue("jenisServis");
+        const nextService = getValue("servisSelanjutnya");
+        const workshop = getValue("namaBengkel");
+        const notes = getValue("catatan");
+
+        const mileage = Number(mileageText);
+        const cost = Number(costText);
+
+        if (
+            !vehicle || !date || !type || !workshop ||
+            mileageText === "" || costText === "" ||
+            !Number.isSafeInteger(mileage) || mileage < 0 ||
+            !Number.isSafeInteger(cost) || cost < 0
+        ) {
+            alert("Lengkapi semua kolom wajib dengan benar.");
+            return;
         }
 
-        riwayat.push(dataBaru);
+        if (nextService && nextService < date) {
+            alert("Tanggal servis selanjutnya tidak boleh sebelum tanggal servis.");
+            return;
+        }
 
-        localStorage.setItem(
-            KEY_SERVIS,
-            JSON.stringify(riwayat)
-        );
+        const newService = {
+            id: Date.now(),
+            date: date,
+            dateFormatted: formatDate(date),
+            vehicle: vehicle,
+            mileage: mileage,
+            type: type,
+            cost: cost,
+            nextService: nextService,
+            nextServiceFormatted: formatDate(nextService),
+            workshop: workshop,
+            notes: notes
+        };
 
-        alert("Data servis berhasil disimpan!");
+        try {
+            const raw = localStorage.getItem("servisData");
+            const savedServices = raw ? JSON.parse(raw) : [];
 
-        window.location.href ="servis1.html";
-    } catch (error) {
-        console.error("Gagal menyimpan servis.", error);
+            if (!Array.isArray(savedServices)) {
+                throw new Error("Data servis tidak berbentuk daftar.");
+            }
 
-        pesanForm.textContent =
-            "Data gagal disimpan. Periksa penyimpanan browser kamu.";
-    }
+            savedServices.push(newService);
+            localStorage.setItem(
+                "servisData",
+                JSON.stringify(savedServices)
+            );
+
+            const verification = JSON.parse(
+                localStorage.getItem("servisData")
+            );
+
+            if (!verification.some(item => item.id === newService.id)) {
+                throw new Error("Data servis belum berhasil diverifikasi.");
+            }
+
+            alert("Data servis berhasil disimpan!");
+            window.location.href = "servis1.html";
+
+        } catch (error) {
+            console.error("Gagal menyimpan data servis:", error);
+            alert("Data gagal disimpan. Periksa Console browser.");
+        }
+    });
+
+    console.log("tambahservis.js berhasil dimuat.");
 });
-
-// Isi pilihan kendaraan saat halaman dibuka
-muatPilihanKendaraan();
-isiFormEdit();

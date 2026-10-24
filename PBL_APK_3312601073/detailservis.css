@@ -116,10 +116,34 @@ body {
     stroke-linejoin: round;
 }
 
+
 /* Konten Detail */
-.detail-container {
-    width: 100%;
-    padding: 40px 2.8% 25px;
+.detail-main {
+    max-width: 1440px;
+    margin: 48px auto;
+    padding: 0 24px;
+}
+
+.detail-main h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+/* Tombol kembali ke riwayat */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 44px;
+
+    color: #1688e8;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #086dbd;
+    text-decoration: none;
 }
 
 /* Kartu Utama */

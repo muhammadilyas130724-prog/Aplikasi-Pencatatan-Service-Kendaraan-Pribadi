@@ -25,7 +25,7 @@ inputCari.addEventListener("input", function () {
         }
     });
     tombolDetail.href =
-        "detailservis.html" +
+        "detailservis.html?id=" +
         encodeURIComponent(String(servis.id));
     pesanKosong.hidden = jumlahHasil > 0;
 });

@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Saya - Servisku</title>
+  <link rel="stylesheet" href="profil.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-icon">🚘</span>
+      <span>Servis<span class="brand-blue">ku</span></span>
+    </a>
+
+    <div class="nav-menu">
+      <a href="dashboard.html" class="nav-link">
+        <span>⌂</span> Dashboard
+      </a>
+      <a href="kendaraan.html" class="nav-link">
+        <span>🚘</span> Kendaraan
+      </a>
+      <a href="servis1.html" class="nav-link">
+        <span>⚒</span> Servis
+      </a>
+      <a href="laporan.html" class="nav-link">
+        <span>▤</span> Laporan
+      </a>
+      <a href="profil.html" class="nav-link active">
+        <span>☻</span> Profil
+      </a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <header class="page-heading">
+      <div>
+        <span class="eyebrow">PENGELOLAAN AKUN</span>
+        <h1>Profil Saya</h1>
+        <p>Kelola informasi pengguna Servisku dengan mudah.</p>
+      </div>
+
+      <div class="heading-icon" aria-hidden="true">👤</div>
+    </header>
+
+    <!-- RINGKASAN -->
+    <section class="stats-grid">
+      <article class="stat-card">
+        <div class="stat-icon blue-icon">♙</div>
+        <div>
+          <p>Total Pengguna</p>
+          <h2 id="totalPengguna">0</h2>
+        </div>
+      </article>
+
+      <article class="stat-card">
+        <div class="stat-icon purple-icon">🚘</div>
+        <div>
+          <p>Total Kendaraan</p>
+          <h2 id="totalKendaraan">0</h2>
+        </div>
+      </article>
+    </section>
+
+    <!-- DAFTAR PENGGUNA -->
+    <section class="user-panel">
+
+      <div class="panel-heading">
+        <div>
+          <h2>Daftar Pengguna</h2>
+          <p>Informasi akun pengguna yang tersimpan.</p>
+        </div>
+
+        <button type="button" class="add-button" id="btnTambah">
+          <span class="plus-icon">+</span>
+          Tambah Pengguna
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.5" cy="10.5" r="6.5"/>
+            <path d="m16 16 5 5"/>
+          </svg>
+          <input
+            type="search"
+            id="cariPengguna"
+            placeholder="Cari nama, nomor telepon atau username..."
+            aria-label="Cari pengguna"
+          >
+        </div>
+
+        <span class="result-count" id="jumlahHasil">0 pengguna</span>
+      </div>
+
+      <!-- FORM TAMBAH / EDIT -->
+      <section class="form-panel" id="panelForm" hidden>
+        <div class="form-heading">
+          <div>
+            <h3 id="judulForm">Tambah Pengguna</h3>
+            <p>Lengkapi informasi pengguna di bawah ini.</p>
+          </div>
+
+          <button type="button" id="btnTutupForm"
+            class="close-button" aria-label="Tutup formulir">×</button>
+        </div>
+
+        <form id="formPengguna">
+          <input type="hidden" id="idPengguna">
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="namaPengguna">Nama Lengkap</label>
+              <input type="text" id="namaPengguna"
+                placeholder="Masukkan nama lengkap"
+                maxlength="80" required>
+            </div>
+
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username"
+                placeholder="Contoh: sasuke27"
+                maxlength="40" required>
+            </div>
+
+            <div class="form-group">
+              <label for="telepon">Nomor Telepon</label>
+              <input type="tel" id="telepon"
+                placeholder="Contoh: 081234567890"
+                maxlength="20">
+            </div>
+
+            <div class="form-group">
+              <label for="emailPengguna">Email</label>
+              <input type="email" id="emailPengguna"
+                placeholder="nama@email.com"
+                maxlength="120">
+            </div>
+          </div>
+
+          <p class="form-message" id="pesanForm" role="status"></p>
+
+          <div class="form-actions">
+            <button type="button" class="cancel-button"
+              id="btnBatal">Batal</button>
+
+            <button type="submit" class="save-button"
+              id="btnSimpan">Simpan Pengguna</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- TABEL PENGGUNA -->
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Nama</th>
+              <th>Username</th>
+              <th>Jumlah Kendaraan</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="tabelPengguna">
+            <tr>
+              <td colspan="5" class="empty-row">Memuat data pengguna...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <footer class="table-footer">
+        <span id="infoTabel">Menampilkan 0 pengguna</span>
+        <span>Servisku · Pengelolaan Pengguna</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- DIALOG KONFIRMASI HAPUS -->
+  <dialog id="dialogHapus" class="confirm-dialog">
+    <div class="dialog-icon">!</div>
+    <h2>Hapus Pengguna?</h2>
+    <p id="teksKonfirmasi">
+      Apakah kamu yakin ingin menghapus pengguna ini?
+    </p>
+
+    <div class="dialog-actions">
+      <button type="button" class="cancel-button"
+        id="btnBatalHapus">Batal</button>
+      <button type="button" class="delete-button"
+        id="btnKonfirmasiHapus">Ya, Hapus</button>
+    </div>
+  </dialog>
+
+  <script src="profil.js"></script>
+</body>
+</html>

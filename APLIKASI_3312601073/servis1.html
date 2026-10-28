@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riwayat Servis | Servisku</title>
+  <link rel="stylesheet" href="servis1.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">
+            <span class="brand-icon">🚘</span>
+            <span>Servis<span class="brand-blue">ku</span></span>
+        </a>
+
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-link">
+                <span>⌂</span> Dashboard
+            </a>
+            <a href="kendaraan.html" class="nav-link">
+                <span>🚘</span> Kendaraan
+            </a>
+            <a href="servis1.html" class="nav-link active">
+                <span>⚒</span> Servis
+            </a>
+            <a href="laporan.html" class="nav-link">
+                <span>▤</span> Laporan
+            </a>
+            <a href="profil.html" class="nav-link">
+                <span>☻</span> Profil
+            </a>
+        </div>
+    </nav>
+
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <section class="welcome-section">
+      <div class="welcome-copy">
+        <h1>
+          <span class="title-icon">⚒</span>
+          Riwayat Servis
+        </h1>
+        <p>Lihat dan kelola seluruh riwayat servis kendaraan Anda.</p>
+      </div>
+
+      <div class="welcome-art" aria-hidden="true">
+        <span>🌳</span>
+        <span class="art-car">🚙</span>
+        <span>🧰</span>
+      </div>
+    </section>
+
+    <!-- SEARCH -->
+    <section class="toolbar">
+      <label class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.8" cy="10.8" r="6.8"/>
+          <path d="M16 16L21 21"/>
+        </svg>
+
+        <input
+          type="search"
+          id="cariServis"
+          placeholder="Cari riwayat servis (kendaraan, jenis servis, atau tanggal)..."
+          autocomplete="off"
+          aria-label="Cari riwayat servis"
+        >
+      </label>
+
+      <a href="tambahservis.html" class="add-button">
+        <span class="plus-icon">+</span>
+        Tambah Servis
+      </a>
+    </section>
+
+    <!-- FILTER DAN SORTING -->
+    <section class="filter-toolbar">
+      <div class="filter-group" aria-label="Filter kendaraan">
+        <button class="filter-button active" data-filter="semua">
+          <span>▦</span> Semua
+        </button>
+
+        <button class="filter-button" data-filter="mobil">
+          <span>🚘</span> Mobil
+        </button>
+
+        <button class="filter-button" data-filter="motor">
+          <span>🏍</span> Motor
+        </button>
+      </div>
+
+      <label class="sort-box">
+        <span class="sort-icon">↕</span>
+        <span>Urutkan:</span>
+        <select id="urutkanServis" aria-label="Urutkan riwayat servis">
+          <option value="terbaru">Terbaru</option>
+          <option value="terlama">Terlama</option>
+          <option value="biaya-tertinggi">Biaya tertinggi</option>
+          <option value="biaya-terendah">Biaya terendah</option>
+        </select>
+      </label>
+    </section>
+
+    <!-- DAFTAR SERVIS -->
+    <section
+      class="service-list"
+      id="daftarServis"
+      aria-label="Daftar riwayat servis"
+    ></section>
+
+    <p id="pesanKosong" class="empty-message" hidden>
+      Riwayat servis tidak ditemukan.
+    </p>
+
+  </main>
+
+  <script src="servis1.js"></script>
+</body>
+</html>

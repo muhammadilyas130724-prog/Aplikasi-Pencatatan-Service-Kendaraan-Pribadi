@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Servisku</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-icon">🚘</span>
+      <span>Servis<span class="brand-blue">ku</span></span>
+    </a>
+
+    <div class="nav-menu">
+      <a href="dashboard.html" class="nav-link active">
+        <span>⌂</span> Dashboard
+      </a>
+      <a href="kendaraan.html" class="nav-link">
+        <span>🚘</span> Kendaraan
+      </a>
+      <a href="servis1.html" class="nav-link">
+        <span>⚒</span> Servis
+      </a>
+      <a href="laporan.html" class="nav-link">
+        <span>▤</span> Laporan
+      </a>
+      <a href="profil.html" class="nav-link">
+        <span>☻</span> Profil
+      </a>
+    </div>
+  </nav>
+
+  <main class="dashboard">
+
+    <section class="welcome-section">
+      <div class="welcome-text">
+        <h1><span class="home-icon">⌂</span> Dashboard</h1>
+        <p>
+          Selamat datang di Servisku! Kelola kendaraan dan
+          riwayat servis Anda di sini.
+        </p>
+      </div>
+
+      <div class="welcome-illustration" aria-hidden="true">
+        <span>🌳</span>
+        <span class="car-illustration">🚙</span>
+        <span>🛵</span>
+      </div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card card-blue">
+        <div class="stat-content">
+          <h2>TOTAL KENDARAAN</h2>
+          <p class="stat-number" id="totalKendaraan">0</p>
+          <span class="stat-description">Kendaraan terdaftar</span>
+        </div>
+        <div class="stat-icon icon-blue">🚘</div>
+      </article>
+
+      <article class="stat-card card-green">
+        <div class="stat-content">
+          <h2>TOTAL SERVICE</h2>
+          <p class="stat-number" id="totalServis">0</p>
+          <span class="stat-description">Riwayat servis tercatat</span>
+        </div>
+        <div class="stat-icon icon-green">⚒</div>
+      </article>
+
+      <article class="stat-card card-pink">
+        <div class="stat-content">
+          <h2>SERVICE TERAKHIR</h2>
+          <p class="stat-date" id="tanggalTerakhir">Belum ada servis</p>
+          <span class="stat-description" id="kendaraanTerakhir">
+            Belum ada riwayat servis
+          </span>
+        </div>
+        <div class="stat-icon icon-pink">▦</div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+
+      <article class="panel history-panel">
+        <div class="panel-heading">
+          <h2><span class="heading-icon">◴</span> Riwayat Servis Terbaru</h2>
+          <a href="servis1.html" class="view-all">
+            Lihat Semua <span>›</span>
+          </a>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Kendaraan</th>
+                <th>Jenis Servis</th>
+                <th>Tanggal</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tabelRiwayat">
+              <tr>
+                <td colspan="5" class="empty-state">
+                  Belum ada riwayat servis.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel chart-panel">
+        <div class="panel-heading chart-heading">
+          <h2><span class="chart-heading-icon">◕</span> Jenis Servis Terbanyak</h2>
+        </div>
+
+        <div id="grafikServis" class="chart-content">
+          <div class="donut-chart" id="donutChart">
+            <div class="donut-center">
+              <strong id="jumlahGrafik">0</strong>
+              <span>Total</span>
+            </div>
+          </div>
+
+          <div id="legendaServis" class="chart-legend">
+            <p class="empty-chart">Belum ada data servis.</p>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

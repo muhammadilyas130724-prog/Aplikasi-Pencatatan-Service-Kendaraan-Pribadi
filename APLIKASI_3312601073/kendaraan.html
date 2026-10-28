@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kendaraan Saya | Servisku</title>
+    <link rel="stylesheet" href="kendaraan.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">
+            <span class="brand-icon">🚘</span>
+            <span>Servis<span class="brand-blue">ku</span></span>
+        </a>
+
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-link">
+                <span>⌂</span> Dashboard
+            </a>
+            <a href="kendaraan.html" class="nav-link active">
+                <span>🚘</span> Kendaraan
+            </a>
+            <a href="servis1.html" class="nav-link">
+                <span>⚒</span> Servis
+            </a>
+            <a href="laporan.html" class="nav-link">
+                <span>▤</span> Laporan
+            </a>
+            <a href="profil.html" class="nav-link">
+                <span>☻</span> Profil
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+
+        <section class="welcome-section">
+            <div class="welcome-copy">
+                <h1><span class="title-icon">🚘</span> Kendaraan Saya</h1>
+                <p>Kelola semua kendaraan yang Anda miliki di sini.</p>
+            </div>
+
+            <div class="welcome-art" aria-hidden="true">
+                <span>🌳</span>
+                <span class="art-car">🚙</span>
+                <span>🛵</span>
+                <span>🌳</span>
+            </div>
+        </section>
+
+        <section class="toolbar">
+            <label class="search-box">
+                <span class="search-icon" aria-hidden="true">⌕</span>
+                <input type="search" id="cariKendaraan" placeholder="Cari kendaraan (nama, nomor plat, atau tahun)..."
+                    autocomplete="off">
+            </label>
+
+            <button type="button" class="add-button" id="btnTambahKendaraan">
+                <span>+</span> Tambah Kendaraan
+            </button>
+        </section>
+
+        <section class="filter-toolbar">
+            <div class="filter-group" aria-label="Filter jenis kendaraan">
+                <button class="filter-button active" data-filter="semua">
+                    <span>▦</span> Semua
+                </button>
+                <button class="filter-button" data-filter="mobil">
+                    <span>🚘</span> Mobil
+                </button>
+                <button class="filter-button" data-filter="motor">
+                    <span>🏍</span> Motor
+                </button>
+            </div>
+
+            <label class="sort-box">
+                <span>↕</span>
+                <span class="sort-label">Urutkan:</span>
+                <select id="urutkanKendaraan" aria-label="Urutkan kendaraan">
+                    <option value="terbaru">Terbaru</option>
+                    <option value="nama">Nama A–Z</option>
+                    <option value="terlama">Terlama</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="vehicle-list" id="daftarKendaraan" aria-label="Daftar kendaraan"></section>
+
+        <p class="empty-message" id="pesanKosong" hidden>
+            Kendaraan tidak ditemukan.
+        </p>
+
+    </main>
+    
+<!-- FORM TAMBAH KENDARAAN -->
+<div class="modal-overlay" id="modalKendaraan" hidden>
+  <section
+    class="modal-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="judulFormKendaraan"
+  >
+    <div class="modal-header">
+      <div>
+        <h2 id="judulFormKendaraan">Tambah Kendaraan</h2>
+        <p>Masukkan informasi kendaraan kamu.</p>
+      </div>
+
+      <button
+        type="button"
+        class="modal-close"
+        id="btnTutupModal"
+        aria-label="Tutup formulir"
+      >&times;</button>
+    </div>
+
+    <form id="formKendaraan">
+      <div class="form-group">
+        <label for="namaKendaraan">Nama Kendaraan</label>
+        <input
+          type="text"
+          id="namaKendaraan"
+          placeholder="Contoh: Toyota Avanza"
+          required
+        >
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="platKendaraan">Nomor Plat</label>
+          <input
+            type="text"
+            id="platKendaraan"
+            placeholder="Contoh: BP 1234 KZ"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="tahunKendaraan">Tahun</label>
+          <input
+            type="number"
+            id="tahunKendaraan"
+            min="1900"
+            max="2100"
+            placeholder="2022"
+            required
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="jenisKendaraan">Jenis Kendaraan</label>
+        <select id="jenisKendaraan" required>
+          <option value="">Pilih jenis kendaraan</option>
+          <option value="Mobil">Mobil</option>
+          <option value="Motor">Motor</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="merekKendaraan">Merek</label>
+        <input
+          type="text"
+          id="merekKendaraan"
+          placeholder="Contoh: Toyota atau Honda"
+          required
+        >
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="cancel-button" id="btnBatalKendaraan">
+          Batal
+        </button>
+        <button type="submit" class="save-button">
+          Simpan Kendaraan
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
+
+
+    <script src="kendaraan.js"></script>
+</body>
+
+</html>

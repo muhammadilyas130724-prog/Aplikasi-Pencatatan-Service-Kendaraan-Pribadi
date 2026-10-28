@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Servis | Servisku</title>
+  <link rel="stylesheet" href="laporan.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-icon">🚘</span>
+      <span>Servis<span class="brand-blue">ku</span></span>
+    </a>
+
+    <div class="nav-menu">
+      <a href="dashboard.html" class="nav-link">
+        <span>⌂</span> Dashboard
+      </a>
+      <a href="kendaraan.html" class="nav-link">
+        <span>🚘</span> Kendaraan
+      </a>
+      <a href="servis1.html" class="nav-link">
+        <span>⚒</span> Servis
+      </a>
+      <a href="laporan.html" class="nav-link active">
+        <span>▤</span> Laporan
+      </a>
+      <a href="profil.html" class="nav-link">
+        <span>☻</span> Profil
+      </a>
+    </div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- JUDUL -->
+    <header class="page-heading">
+      <div>
+        <h1>Laporan Servis</h1>
+        <p>Pantau riwayat dan pengeluaran servis kendaraan Anda.</p>
+      </div>
+      <div class="heading-decoration" aria-hidden="true">📊</div>
+    </header>
+
+    <!-- FILTER LAPORAN -->
+    <form class="filter-card" id="formFilter">
+      <div class="filter-group">
+        <label for="tanggalAwal">Tanggal Awal Servis</label>
+        <div class="filter-input">
+          <span aria-hidden="true">▦</span>
+          <input type="date" id="tanggalAwal" required>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label for="tanggalAkhir">Tanggal Akhir Servis</label>
+        <div class="filter-input">
+          <span aria-hidden="true">▦</span>
+          <input type="date" id="tanggalAkhir" required>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label for="filterKendaraan">Jenis Kendaraan</label>
+        <div class="filter-input">
+          <span aria-hidden="true">🚘</span>
+          <select id="filterKendaraan">
+            <option value="semua">Semua Kendaraan</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="filter-button">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"/>
+          <path d="m16 16 5 5"/>
+        </svg>
+        Tampilkan
+      </button>
+    </form>
+
+    <p class="filter-message" id="filterMessage" role="status"></p>
+
+    <!-- KARTU RINGKASAN -->
+    <section class="summary-grid">
+      <article class="summary-card blue-card">
+        <div class="summary-icon">▤</div>
+        <div>
+          <p>Total Pengeluaran</p>
+          <h2 id="totalPengeluaran">Rp 0</h2>
+          <span class="summary-note">Total biaya servis</span>
+        </div>
+      </article>
+
+      <article class="summary-card green-card">
+        <div class="summary-icon">▣</div>
+        <div>
+          <p>Jumlah Servis</p>
+          <h2 id="jumlahServis">0 kali</h2>
+          <span class="summary-note">Servis dalam periode</span>
+        </div>
+      </article>
+
+      <article class="summary-card purple-card">
+        <div class="summary-icon">🔧</div>
+        <div>
+          <p>Rata-rata Biaya</p>
+          <h2 id="rataBiaya">Rp 0</h2>
+          <span class="summary-note">Biaya per servis</span>
+        </div>
+      </article>
+
+      <article class="summary-card yellow-card">
+        <div class="summary-icon">▦</div>
+        <div>
+          <p>Rentang Waktu</p>
+          <h2 id="rentangWaktu">-</h2>
+          <span class="summary-note">Periode laporan</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- GRAFIK -->
+    <section class="charts-grid">
+
+      <article class="chart-card">
+        <div class="section-heading">
+          <div>
+            <h2>Rekap Jenis Servis</h2>
+            <p>Persentase jenis servis yang dilakukan.</p>
+          </div>
+        </div>
+
+        <div class="donut-layout">
+          <div class="donut-chart" id="donutChart"
+               role="img" aria-label="Grafik jenis servis">
+            <div class="donut-hole">
+              <strong id="donutTotal">0</strong>
+              <span>Servis</span>
+            </div>
+          </div>
+
+          <div class="donut-legend" id="donutLegend">
+            <p class="empty-chart">Belum ada data servis.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="chart-card">
+        <div class="section-heading chart-heading">
+          <div>
+            <h2>Grafik Pengeluaran</h2>
+            <p>Total biaya servis per bulan.</p>
+          </div>
+
+          <label class="period-select">
+            <span aria-hidden="true">▥</span>
+            <select id="jenisGrafik" aria-label="Periode grafik">
+              <option value="bulan">Per Bulan</option>
+              <option value="tahun">Per Tahun</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="bar-chart" id="barChart">
+          <p class="empty-chart">Belum ada data pengeluaran.</p>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- TABEL RINCIAN -->
+    <section class="table-card">
+      <div class="table-heading">
+        <div>
+          <h2>Rincian Servis</h2>
+          <p>Daftar servis sesuai filter yang dipilih.</p>
+        </div>
+
+        <button type="button" class="download-button" id="btnUnduh">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>
+          </svg>
+          Unduh Laporan
+        </button>
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Tanggal Servis</th>
+              <th>Nama Kendaraan</th>
+              <th>Jenis Servis</th>
+              <th>Biaya</th>
+              <th>Nama Bengkel</th>
+            </tr>
+          </thead>
+          <tbody id="tabelRincian">
+            <tr>
+              <td colspan="6" class="empty-table">
+                Memuat data laporan...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <span id="jumlahBaris">0 data servis</span>
+        <span id="totalTabel">Total: Rp 0</span>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="laporan.js"></script>
+</body>
+</html>

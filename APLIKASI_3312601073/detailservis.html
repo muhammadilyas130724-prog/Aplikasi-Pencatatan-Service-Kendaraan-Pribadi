@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Servis | Servisku</title>
+  <link rel="stylesheet" href="detailservis.css">
+</head>
+<body>
+
+    <nav class="navbar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-icon">🚘</span>
+      <span>Servis<span class="brand-blue">ku</span></span>
+    </a>
+
+    <div class="nav-menu">
+      <a href="dashboard.html" class="nav-link">
+        <span>⌂</span> Dashboard
+      </a>
+      <a href="kendaraan.html" class="nav-link">
+        <span>🚘</span> Kendaraan
+      </a>
+      <a href="servis1.html" class="nav-link active">
+        <span>⚒</span> Servis
+      </a>
+      <a href="laporan.html" class="nav-link">
+        <span>▤</span> Laporan
+      </a>
+      <a href="profil.html" class="nav-link">
+        <span>☻</span> Profil
+      </a>
+    </div>
+  </nav>
+  <main class="main-content">
+
+    <!-- JUDUL -->
+    <section class="page-heading">
+      <div>
+        <h1>Detail Servis</h1>
+        <p>Informasi lengkap mengenai riwayat servis kendaraan Anda.</p>
+      </div>
+    </section>
+
+    <!-- KEMBALI -->
+    <a href="servis1.html" class="back-link">
+      <span class="back-circle" aria-hidden="true">←</span>
+      <span>Kembali ke riwayat</span>
+    </a>
+
+    <!-- DETAIL -->
+    <section class="detail-card" id="detailCard" hidden>
+
+      <!-- IDENTITAS KENDARAAN -->
+      <header class="vehicle-header">
+        <div class="vehicle-image" id="vehicleImage" aria-hidden="true">
+          🚘
+        </div>
+
+        <div class="vehicle-heading">
+          <h2 id="detailNamaKendaraan">-</h2>
+
+          <div class="vehicle-meta">
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="6" width="18" height="12" rx="2"/>
+                <path d="M7 10h3M7 14h2M14 10h3M14 14h3"/>
+              </svg>
+              <span id="detailPlat">-</span>
+            </span>
+
+            <span class="meta-divider"></span>
+
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="2"/>
+                <path d="M7 3v4M17 3v4M3 10h18"/>
+              </svg>
+              Tahun <span id="detailTahun">-</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="vehicle-badge" id="badgeJenisKendaraan">
+          <span id="badgeIcon">🚘</span>
+          <span id="badgeText">Mobil</span>
+        </div>
+      </header>
+
+      <!-- INFORMASI SERVIS -->
+      <div class="detail-grid">
+
+        <div class="info-item">
+          <div class="info-icon blue">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <path d="M7 3v4M17 3v4M3 10h18M7 14h2M12 14h2"/>
+            </svg>
+          </div>
+          <div class="info-label">Tanggal Awal Servis</div>
+          <div class="info-value" id="detailTanggal">-</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon red">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <path d="M7 3v4M17 3v4M3 10h18M8 15l3 3 5-6"/>
+            </svg>
+          </div>
+          <div class="info-label">Tanggal Akhir Servis</div>
+          <div class="info-value" id="detailTanggalBerikutnya">-</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon green">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14 5a5 5 0 0 0-6 6l-5 5 4 4 5-5a5 5 0 0 0 6-6l-4 4-4-4z"/>
+              <path d="M15 3l6 6"/>
+            </svg>
+          </div>
+          <div class="info-label">Jenis Servis</div>
+          <div class="info-value" id="detailJenisServis">-</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon sky">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 10h18v10H3zM2 10l2-6h16l2 6"/>
+              <path d="M8 20v-6h8v6"/>
+            </svg>
+          </div>
+          <div class="info-label">Nama Bengkel</div>
+          <div class="info-value" id="detailBengkel">-</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon purple">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 18a8 8 0 1 1 16 0"/>
+              <path d="M12 13l4-4"/>
+              <circle cx="12" cy="13" r="1"/>
+              <path d="M12 4v2M5 8l2 2M19 8l-2 2"/>
+            </svg>
+          </div>
+          <div class="info-label">Jarak Tempuh</div>
+          <div class="info-value" id="detailJarak">-</div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon yellow">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <ellipse cx="12" cy="6" rx="8" ry="3"/>
+              <path d="M4 6v4c0 2 16 2 16 0V6M4 10v4c0 2 16 2 16 0v-4"/>
+              <path d="M4 14v4c0 2 16 2 16 0v-4"/>
+            </svg>
+          </div>
+          <div class="info-label">Biaya</div>
+          <div class="info-value cost-value" id="detailBiaya">-</div>
+        </div>
+
+        <div class="info-item note-item">
+          <div class="info-icon green">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 3h9l4 4v14H6zM15 3v5h4M9 12h7M9 16h7"/>
+            </svg>
+          </div>
+          <div class="info-label">Catatan</div>
+          <div class="info-value note-value" id="detailCatatan">-</div>
+        </div>
+
+      </div>
+
+      <!-- TOMBOL AKSI -->
+      <footer class="detail-actions">
+        <button type="button" class="edit-button" id="btnEdit">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 20H4V4h11"/>
+            <path d="M14 5l5 5M10 19l-1 4 4-1L23 12l-5-5z"/>
+          </svg>
+          Edit
+        </button>
+
+        <button type="button" class="delete-button" id="btnHapus">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M9 6V3h6v3M6 6l1 15h10l1-15"/>
+            <path d="M10 10v7M14 10v7"/>
+          </svg>
+          Hapus
+        </button>
+      </footer>
+    </section>
+
+    <!-- KONDISI DATA TIDAK DITEMUKAN -->
+    <section class="not-found" id="dataTidakDitemukan" hidden>
+      <div class="not-found-icon">📋</div>
+      <h2>Data servis tidak ditemukan</h2>
+      <p>Silakan kembali ke riwayat servis dan pilih data yang ingin dilihat.</p>
+      <a href="servis1.html" class="back-button">Kembali ke Riwayat Servis</a>
+    </section>
+
+  </main>
+
+  <script src="detailservis.js"></script>
+</body>
+</html>
